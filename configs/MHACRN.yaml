@@ -1,0 +1,48 @@
+METRLA:
+  num_nodes: 207
+  in_steps: 12
+  out_steps: 12
+
+  time_of_day: True
+  day_of_week: True
+
+  y_time_of_day: True
+  y_day_of_week: True 
+
+  runner: mhacrn 
+  loss: myloss
+  loss_args:
+    beta: 0.03 
+
+  lr: 0.004
+  milestones: [55]
+  lr_decay_rate: 0.05
+
+  batch_size: 64
+  max_epochs: 1000  
+  early_stop: 20 
+
+  model_args:
+    num_nodes: 207
+    input_dim: 3 
+    output_dim: 1
+    node_dim: 20
+    horizon: 12
+    rnn_dim: 96
+    encoder_rnn_layers: 1
+    decoder_rnn_layers: 2 
+
+    cheb_k: 2
+    ycov_dim: 2
+    graph_num: 1
+    tf_decay_steps: 2000    
+    use_teacher_forcing: True
+
+    decoder_embed_dim: 32
+    st_embed_dim: 20
+    time_embed_dim: 8
+    decoder_patch_len: 2
+
+    shared_pred: True
+    seperate_pred: True 
+    min_tf_decay_rate: 0.7
